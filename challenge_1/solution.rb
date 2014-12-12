@@ -1,25 +1,28 @@
+# encoding: UTF-8
+
 require 'test/unit'
 extend Test::Unit::Assertions
 
-def getInfo(test=false)
-	puts "What's your name?"
-	name = test ? "max" : gets.chomp()
+def get_info(test = false)
+  puts "What's your name?"
+  name = test ? 'max' : gets.chomp
 
-	puts "What's your age?"
-	age = test ? 26 : gets.chomp()
+  puts "What's your age?"
+  age = test ? 26 : gets.chomp
 
-	puts "What's your reddit username?"
-	redditUsername = test ? "iammax" : gets.chomp()
+  puts "What's your reddit username?"
+  reddit_username = test ? 'iammax' : gets.chomp
 
-	result = "Your name is #{name}, your age is #{age}, and your reddit username is #{redditUsername}."
-	puts result if !test
-	return result
+  result = 'Your name is #{name}, your age is #{age}, '\
+    'and your reddit username is #{reddit_username}.'
+  puts result unless test
 end
 
-def testGetInfo
-	shouldBeOutput = "Your name is max, your age is 26, and your reddit username is iammax."
-	assert_equal shouldBeOutput, getInfo(true)
+def test_get_info
+  should_be_output = 'Your name is max, your age is 26, '\
+    'and your reddit username is iammax.'
+  assert_equal should_be_output, get_info(true)
 end
 
-testGetInfo()
-getInfo()
+test_get_info
+get_info
